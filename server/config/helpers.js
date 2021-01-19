@@ -1,21 +1,14 @@
-const Mysqli = require('mysql');
+const Mysqli = require('mysqli');
 
-
-let db = Mysqli.createConnection({
-    Host: 'localhost', // IP/domain name 
+let conn = new Mysqli({
+    host: 'localhost', // IP/domain name 
     post: 3306, // port, default 3306 
-    user: 'mega_user', // username 
-    password : '123456',// password 
+    user: 'root', // username 
+    passwd: '', // password ,// password 
     db: 'mega_shop'
 });
 
-// Connect
-db.connect((err) => {
-    if(err){
-      console.log(err);
-    }
-    console.log('MySql Connected');
-  });
+let db = conn.emit(false, '');
 
 module.exports = {
     database: db,
